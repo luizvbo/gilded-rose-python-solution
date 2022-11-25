@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-from __future__ import print_function
-
-from gilded_rose import *
+"""Text test ficture"""
+from gilded_rose.gilded_rose import GildedRose, Item
 
 if __name__ == "__main__":
     print("OMGHAI!")
@@ -17,13 +15,13 @@ if __name__ == "__main__":
         Item(name="Conjured Mana Cake", sell_in=3, quality=6),  # <-- :O
     ]
 
-    days = 2
+    DAYS = 2
     import sys
 
     if len(sys.argv) > 1:
-        days = int(sys.argv[1]) + 1
-    for day in range(days):
-        print("-------- day %s --------" % day)
+        DAYS = int(sys.argv[1]) + 1
+    for day in range(DAYS):
+        print(f"-------- day {day} --------")
         print("name, sellIn, quality")
         for item in items:
             print(item)
