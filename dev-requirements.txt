@@ -1,5 +1,8 @@
+black
 flake8
+import-linter
+isort
 pre-commit
+pylint
 pytest
 pytest-cov
-import-linter

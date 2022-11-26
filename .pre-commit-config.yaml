@@ -59,18 +59,16 @@ repos:
           - id: black
             name: "Black"
             language: system
-            files: ^gilded_rose/|^tests/
+            files: ^gilded_rose_app/|^tests/
             types: [file, python]
             entry: black
 
-          # It's impossible to specify per-directory configuration, so we just run it many times.
-          # https://github.com/PyCQA/pylint/issues/618
           # The first set of pylint checks if for local pre-commit, it only runs on the files changed.
-          - id: pylint-quick-gilded_rose
-            name: "Quick Pylint on gilded_rose/*"
+          - id: pylint-quick-gilded_rose_app
+            name: "Quick Pylint on gilded_rose_app/*"
             language: system
             types: [file, python]
-            files: ^gilded_rose/
+            files: ^gilded_rose_app/
             entry: pylint -j 4 --disable=unnecessary-pass
             stages: [commit]
           - id: pylint-quick-tests
@@ -82,12 +80,12 @@ repos:
             stages: [commit]
 
           # The same pylint checks, but running on all files. It's for manual run with `make lint`
-          - id: pylint-gilded_rose
-            name: "Pylint on gilded_rose/*"
+          - id: pylint-gilded_rose_app
+            name: "Pylint on gilded_rose_app/*"
             language: system
             pass_filenames: false
             stages: [manual]
-            entry: pylint -j 4 --disable=unnecessary-pass --init-hook="import sys; sys.setrecursionlimit(2000)" kedro
+            entry: pylint -j 4 --disable=unnecessary-pass --init-hook="import sys; sys.setrecursionlimit(2000)" gilded_rose_app
           - id: pylint-tests
             name: "Pylint on tests/*"
             language: system

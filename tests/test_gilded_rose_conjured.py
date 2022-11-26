@@ -1,4 +1,4 @@
-from gilded_rose.gilded_rose import item_types
+from gilded_rose_app.gilded_rose import item_types
 
 item_name = item_types.conjured
 

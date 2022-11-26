@@ -2,6 +2,7 @@
 from types import SimpleNamespace
 from typing import Iterable
 
+# Item names used across the code
 item_types = SimpleNamespace(
     brie="Aged Brie",
     backstage_passes="Backstage passes to a TAFKAL80ETC concert",
@@ -37,8 +38,9 @@ class GildedRose:
     def update_item(self, item: Item):
         """Update an item according to its type.
 
-        At the end, the method makes sure that the quality is never
-        negative or greater than 50.
+        At the end, the method makes sure that the quality is never negative or
+        greater than 50. With this, we can remove the manual checks for the
+        upper/lower bounds for the item quality.
 
         Args:
             item (Item): Item to be updated.
@@ -55,7 +57,7 @@ class GildedRose:
         else:
             quality = self.update_regular(item)
 
-        # Make sure the quality constraints are respected
+        # Make sure the quality constraints are respected.
         item.quality = min(50, max(0, quality))
 
     def update_brie(self, item: Item) -> int:

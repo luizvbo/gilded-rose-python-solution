@@ -1,4 +1,6 @@
-item_name = "Backstage passes to a TAFKAL80ETC concert"
+from gilded_rose_app.gilded_rose import item_types
+
+item_name = item_types.backstage_passes
 
 
 def test_increase_quality_gt_10_days(compare_item_after_update):
